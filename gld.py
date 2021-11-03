@@ -9,7 +9,7 @@ class GLDLoss(nn.Module):
         self.alpha = alpha
         self.beta = beta
         self.num_local = div * div
-        self.cross_entropy = nn.CrossEntropyLoss()
+        self.cross_entropy = nn.CrossEntropyLoss().cuda()
         self.t_local_pool = nn.AvgPool2d((spatial_size // div), stride=(spatial_size // div))
         self.s_local_pool = nn.AvgPool2d((spatial_size // div), stride=(spatial_size // div))
         self.t_global_pool = nn.AvgPool2d(spatial_size, stride=1)
